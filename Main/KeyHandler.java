@@ -44,13 +44,6 @@ public class KeyHandler implements KeyListener {
         {
             dialogueState(code);
         }
-
-        //CHARACTER STATE
-        /*else if (gp.gameState == gp.characterState)
-        {
-            characterState(code);
-        }
-*/
         //OPTIONS STATE
         else if (gp.gameState == gp.optionsState)
         {
@@ -112,9 +105,6 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_P) {
                 gp.gameState = gp.pauseState;
             }
-            //if (code == KeyEvent.VK_C){
-              //  gp.gameState = gp.characterState;
-            //}
             if(code == KeyEvent.VK_ENTER) {
                 enterPressed = true;
             }
@@ -254,9 +244,7 @@ public class KeyHandler implements KeyListener {
             }
         }
     }
-    
 
-    
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
@@ -272,9 +260,6 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_D) {
             rightPressed = false;
         }
-        //if( code == KeyEvent.VK_ENTER){
-            //gp.player.selectItem();
-        //}
         if(code == KeyEvent.VK_SPACE) {
             shotKeyPressed = false;
         }
