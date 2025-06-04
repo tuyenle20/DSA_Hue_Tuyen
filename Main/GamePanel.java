@@ -4,7 +4,7 @@ import Entity.Entity;
 import Entity.Player;
 import Environment.EnvironmentManage;
 import Tile.TileManager;
-import java.awt.Color; // Corrected the spelling from "Dimention" to "Dimension"
+import java.awt.Color; 
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -17,11 +17,11 @@ import java.util.Comparator;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel  implements Runnable{
-    final int originalTileSize = 16; // 16x16 tile
+    final int originalTileSize = 16; 
     final int scale = 3;
 
-    public final int tileSize = originalTileSize * scale; // 48x48 tile
-    public final int maxScreenCol = 20;//20
+    public final int tileSize = originalTileSize * scale; 
+    public final int maxScreenCol = 20;
     public final int maxScreenRow = 12;
     public final int screenWidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
@@ -42,13 +42,11 @@ public class GamePanel extends JPanel  implements Runnable{
     Sound se = new Sound();
     public AssetSetter aSetter = new AssetSetter(this);
     public CollisionChecker cChecker = new CollisionChecker(this);   
-    
-    
     Thread gameThread; 
     public UI ui = new UI(this);
     public EventHandler eHandler = new EventHandler(this);
 
-    //ENTITY AND OBJECTf
+    //ENTITY AND OBJECT
     public Player player= new Player(this, keyH);
     public Entity obj[] = new Entity[20];
     public Entity npc[] = new Entity[10];
@@ -60,7 +58,6 @@ public class GamePanel extends JPanel  implements Runnable{
     ArrayList<Entity> entityList = new ArrayList<>();
     public ArrayList<Entity> particleList = new ArrayList<>();
     
-
     //Game state
     public int gameState;
     public final int titleState = 0;
@@ -70,41 +67,31 @@ public class GamePanel extends JPanel  implements Runnable{
     public final int characterState = 4;
     public final int optionsState = 5;
     public final int gameOverState = 6; 
-
-
    
     public GamePanel() {
-        this.setPreferredSize(new Dimension(screenWidth, screenHeight)); // Fixed "Dimention" typo
-        this.setBackground(Color.BLACK); // Best practice to use uppercase for color constants
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight)); 
+        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
     }
 
     public void setupGame() {
-
         aSetter.setObject();
         aSetter.setNPC();
         aSetter.setGhost();
         eManage.setup();
-        
-
         gameState = titleState;
-
     }
 
     public void retry(){
-
         player.setDefaultPositions();
         player.restoreLifeAndMan();
         aSetter.setNPC();
         aSetter.setGhost();
-        //aSetter.setBigSnowMan();
-    
     }
 
     public void restart(){
-
         player.setDefaultValues();
         player.setDefaultPositions();
         player.restoreLifeAndMan();
@@ -112,11 +99,9 @@ public class GamePanel extends JPanel  implements Runnable{
         aSetter.setObject();
         aSetter.setNPC();
         aSetter.setGhost();
-        //aSetter.setBigSnowMan();
-        // aSetter.setInteractiveTile();
-
     }
-    public void setFullScreen()
+    publ
+    ic void setFullScreen()
     {
         //GET LOCAL SCREEN DEVICE
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -153,7 +138,6 @@ public class GamePanel extends JPanel  implements Runnable{
             drawCount = 0;
             timer = 0;
         }
-
         }
     }
     public void update() {
@@ -182,20 +166,6 @@ public class GamePanel extends JPanel  implements Runnable{
                         }
                 }
             }
-             /*for(int i = 0; i < ghost.length; i++)
-            {
-                if(ghost[i] != null)
-                {
-                    if(ghost[i].alive == true && ghost[i].dying == false){
-                    bigsnowman[i].update();
-                    }
-                    if(bigsnowman[i].alive == false){
-                        // bigsnowman[i].checkDrop();
-                        bigsnowman[i] = null;
-                        }
-                }
-            }*/
-
             for(int i = 0; i < projectileList.size(); i++)
             {
                 if(projectileList.get(i) != null)
@@ -223,18 +193,9 @@ public class GamePanel extends JPanel  implements Runnable{
                 }
             
             }
-
-            /*for (int i = 0; i < iTile.length; i++){     
-                if(iTile[i] != null){
-                    iTile[i].update();
-                }
-            }*/
-
         }
 
-        if(gameState == pauseState)
-        {
-            //Nothing
+        if(gameState == pauseState) {
         }
       
     }
@@ -261,17 +222,8 @@ public class GamePanel extends JPanel  implements Runnable{
         //OTHERS
         else
         {
-
             // TILE
             tileM.draw(g2);
-
-            /*for(int i = 0; i < iTile.length; i++ ) {
-                if(iTile[i] != null){
-                    iTile[i].draw(g2);
-                }
-            }*/
-
-
             //ADD ENTITY TO THE LIST
             entityList.add(player);
 
