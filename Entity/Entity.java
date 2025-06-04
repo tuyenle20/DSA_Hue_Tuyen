@@ -55,9 +55,6 @@ public class Entity {
     public int maxMana;
     public int mana;
     public int ammo;
-
-    //public int strength;
-    //public int dexterity;
     public int attack;
     public int defense; 
 
@@ -65,18 +62,14 @@ public class Entity {
 
     // ITEM ATTRIBUTES
     public int value;
-    //public int attackValue;
-    //public int defenseValue;
-    //public String description = "";
     public int useCost; 
     //TYPE
-    public int type; // 0 = player , 1= npc , 2= monster
+    public int type; 
     public final int type_player = 0;
     public final int type_npc = 1;
     public final int type_monster = 2;
     public final int type_sword = 3;
     public final int type_axe = 4;
-    //public final int type_shield = 5;
     public final int type_consumable = 5;
     public final int type_pickupOnly = 6;
 
@@ -135,7 +128,7 @@ public class Entity {
    }
    
     public int getParticleSize(){
-           int size =0;    // 6 pixels
+           int size =0;  
            return size;
        }
    
@@ -156,7 +149,7 @@ public class Entity {
         int speed = generator.getParticleSpeed();
         int maxLife = generator.getParticleMaxLife();
 
-        Particle p1 = new Particle(gp, target, color, size, speed, maxLife, -2, -1);     //change holizontal vector -1 to -2
+        Particle p1 = new Particle(gp, target, color, size, speed, maxLife, -2, -1);    
         Particle p2 = new Particle(gp, target, color, size, speed, maxLife, 2, -1);
         Particle p3 = new Particle(gp, target, color, size, speed, maxLife, -2, 1);
         Particle p4 = new Particle(gp, target, color, size, speed, maxLife, 2, 1);
@@ -165,8 +158,6 @@ public class Entity {
         gp.particleList.add(p3);
         gp.particleList.add(p4);
     }
-
-
 
     public void update()
     {
@@ -177,7 +168,6 @@ public class Entity {
         gp.cChecker.checkObject(this, false);
         gp.cChecker.checkEntity(this, gp.npc);
         gp.cChecker.checkEntity(this, gp.ghost);
-        //gp.cChecker.checkEntity(this,gp.iTile);
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
 
         if(this.type ==type_monster && contactPlayer == true)
