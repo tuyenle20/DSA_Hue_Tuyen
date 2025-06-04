@@ -23,8 +23,8 @@ public class CollisionChecker {
 
         int tileNum1, tileNum2;
 
-        switch(entity.direction){           // tạo góc chặn để khi gặp cây sẽ bị chặn lại
-            case "up":                      // góc chặn khi đi lên, xuống, trái, phải nếu gặp cây
+        switch(entity.direction){          
+            case "up":                   
                 entityTopRow = (entityTopWorldY - entity.speed)/ gp.tileSize;
                 tileNum1 = gp.tileM.mapTileNum[entityLeftCol][ entityTopRow];
                 tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];
