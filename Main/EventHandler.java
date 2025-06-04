@@ -62,11 +62,6 @@ public class EventHandler  {
     
         return hit;
     }
-
-
-  
-   
-   
     public void damagePit(int col, int row,int gameState) {
         gp.gameState = gameState;
         gp.playSE(6);
