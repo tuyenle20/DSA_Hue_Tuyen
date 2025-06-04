@@ -20,13 +20,9 @@ public class OBJ_Fireball extends Projectile{
     }
     public void getImage() {
         up1 = setup("/projectile/fireball_up_1",gp.tileSize,gp.tileSize);
-        //up2 = setup("/projectile/snowball_up_2",gp.tileSize,gp.tileSize);
         down1 = setup("/projectile/fireball_down_1",gp.tileSize,gp.tileSize);
-        //down2 = setup("/projectile/snowball_down_2",gp.tileSize,gp.tileSize);
         left1 = setup("/projectile/fireball_left_1",gp.tileSize,gp.tileSize);
-        //left2 = setup("/projectile/snowball_left_2",gp.tileSize,gp.tileSize);
         right1 = setup("/projectile/fireball_right_1",gp.tileSize,gp.tileSize);
-        //right2 = setup("/projectile/snowball_right_2",gp.tileSize,gp.tileSize);
     }
     public boolean haveResource(Entity user) {
         boolean haveResource = false;
@@ -40,7 +36,7 @@ public class OBJ_Fireball extends Projectile{
     }
 
     public Color getParticleColor(){
-        Color color = new Color(70, 130, 180);   // chỉnh màu snowball khi ném trúngtrúng nvat   
+        Color color = new Color(70, 130, 180);  
         
         return color;
    }
